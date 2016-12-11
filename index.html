@@ -1,0 +1,129 @@
+<!DOCTYPE HTML>
+<!--
+	Phantom by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>UnionBiz</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+	</head>
+	<body>
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<div class="inner">
+
+							<!-- Logo -->
+								<a href="index.html" class="logo">
+									<span class="symbol"><img src="logo.png" alt="UB" style="height:150px;width:180px"/></span><span class="title">Union Biz</span>
+								</a>
+
+							<!-- Nav -->
+								<nav>
+									<ul>
+										<li><a href="#menu">Menu</a></li>
+									</ul>
+								</nav>
+
+						</div>
+					</header>
+
+				<!-- Menu -->
+					<nav id="menu">
+						<h3>Account No. 100513767077</h3>
+						<h3>Balance:</h3>
+						<h3 name="balance" id="balance">123123 Php</h3>
+						<h3>Name: Carl Reyes</h3><br><br><br><br><br><br><br><br><br>
+						<ul>
+							<li><a href="#">Logout</a></li>
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<div id="main">
+						<div class="inner">
+							<header>
+							
+								</header>
+							<section class="tiles">
+								<article class="style1">
+									<span class="image">
+										<img src="1.jpg" alt="" />
+									</span>
+									<a href="generic.html">
+										<h2>Restaurant</h2>
+										<div class="content">
+											<p>Delicious Food. To fit your lifestyle.</p>
+										</div>
+									</a>
+								</article>
+								<article class="style2">
+									<span class="image">
+										<img src="2.jpg" alt="tech"  />
+									</span>
+									<a href="generic.html">
+										<h2>INSTALLMENT DEALS</h2>
+										<div class="content">
+											<p>Technology of the Future</p>
+										</div>
+									</a>
+								</article>
+								<article class="style3">
+									<span class="image">
+										<img src="3.jpg" alt="" />
+									</span>
+									<a href="generic.html">
+										<h2>CAR LOANS</h2>
+										<div class="content">
+											<p>Everything We Do is Driven By You</p>
+										</div>
+									</a>
+								</article>
+							
+							</section>
+						</div>
+					</div>
+
+				<!-- Footer -->
+				
+				
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+			<script src="assets/js/main.js"></script>
+		<script>
+		setInterval(function()
+        {
+            balance();
+        },1000);
+		
+		function balance()
+		{
+			$.ajax({
+				url: 'php/pendingorders.php',
+				type: 'POST',
+				success: function(balance)
+				{
+					if(!balance.error)
+						{
+							$("#balance").html(balance)
+						}
+				}
+			});
+		}
+		</script>
+	</body>
+</html>
